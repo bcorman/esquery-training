@@ -15,6 +15,12 @@
   display: flex;
 }
 
+.label {
+  align-self: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: var(--yellow);
+}
 /* Console */
 
 #console-display {
@@ -31,9 +37,6 @@
 
 #console-display span {
   align-self: center;
-  font-size: 14px;
-  margin-bottom: 2px;
-  color: var(--yellow);
 }
 
 #console-source {
@@ -53,6 +56,8 @@
 /* AST Display */
 
 #query-tree-display {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-width: calc(96vw/3);
   height: 36vh;
@@ -63,8 +68,15 @@
 /* Output Display */
 
 #output-ast-container {
+  display: flex;
+  flex-direction: column;
   height: calc(36vh * 2 + 24px);
   width: 100%;
   margin: 0 16px;
   background-color: var(--blue);
+}
+
+#output-display {
+  display: flex;
+  flex-direction: column;
 }

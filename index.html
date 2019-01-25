@@ -40,25 +40,30 @@
       <div id="console-container">
         
         <div id="console-display">
-          <span>Source</span>
-          <textarea id="console-source" spellcheck="false" wrap="off" >
-            let foo = bar => {
-              return bar * 7;
-            }
-            
-            foo();
-            
-          </textarea>
+          <span class="label">Source</span>
+  
+  <!-- This indentation affects the indentation of the text in the textarea -->
+<textarea id="console-source" spellcheck="false" wrap="off" >
+let foo = bar => {
+  return bar * 7;
+}
+  
+foo();
+  
+</textarea>
           
         </div>
         <div id="query-tree-display">
-          <div class='label'>AST</div>
+          <span class='label'>AST</span>
           
           <pre id='selectorAst'></pre>
         </div>
       </div>
       <div id="output-ast-container">
-                
+        <div id='output-display'>
+          <span class='label'>Output</span>
+          <pre id='output'></pre>
+        </div>  
       </div>
     </section>
 
