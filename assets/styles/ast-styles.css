@@ -1,0 +1,70 @@
+:root {
+  --yellow: rgba(255, 198, 0, 1);
+  --white: rgba(240, 240, 240, 1);
+  --black: rgba(39, 39, 39, 1);
+  --red: rgba(250, 40, 30, 0.9);
+  --blue: rgb(1, 90, 146);
+  --blueDimmed: rgb(0, 55, 88);
+  --backgroundRed: rgb(222, 65, 48);
+  --backgroundRedDimmed: rgb(95, 27, 19);
+}
+
+/* Container */
+
+#ast-repl {
+  display: flex;
+}
+
+/* Console */
+
+#console-display {
+  width: 100%;
+  min-width: calc(96vw/3);
+  height: 36vh;
+  margin-left: 6px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue);
+  transition: border 0.3s cubic-bezier(1,0.66,.79,1),
+              color 0.3s cubic-bezier(1,0.66,.79,1);
+}
+
+#console-display span {
+  align-self: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: var(--yellow);
+}
+
+#console-source {
+  height: 100%;
+  width: 100%;
+  resize: none;
+  font-size: 14px;
+  background-color: inherit;
+  color: var(--yellow);
+  border: none;
+}
+
+#console-source {
+  outline: none;
+}
+
+/* AST Display */
+
+#query-tree-display {
+  width: 100%;
+  min-width: calc(96vw/3);
+  height: 36vh;
+  margin: 24px 0 0 6px;
+  background-color: var(--blue);
+}
+
+/* Output Display */
+
+#output-ast-container {
+  height: calc(36vh * 2 + 24px);
+  width: 100%;
+  margin: 0 16px;
+  background-color: var(--blue);
+}

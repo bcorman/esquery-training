@@ -7,12 +7,13 @@
   <title>AST Training REPL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/styles.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/ast-styles.css" />
   <!-- <script src="main.js"></script> -->
 </head>
 
 <body>
   <header>
-    <a>
+    <a href="../index.html">
       <h1 id="banner">Ben Corman</h1>
     </a>
     <nav id="header-nav">
@@ -34,6 +35,34 @@
       </ul>
     </nav>
   </header>
+  <div id="main">
+    <section id="ast-repl">
+      <div id="console-container">
+        
+        <div id="console-display">
+          <span>Source</span>
+          <textarea id="console-source" spellcheck="false" wrap="off" >
+            let foo = bar => {
+              return bar * 7;
+            }
+            
+            foo();
+            
+          </textarea>
+          
+        </div>
+        <div id="query-tree-display">
+          <div class='label'>AST</div>
+          
+          <pre id='selectorAst'></pre>
+        </div>
+      </div>
+      <div id="output-ast-container">
+                
+      </div>
+    </section>
+
+  </div id="main">
 
 </body>
 

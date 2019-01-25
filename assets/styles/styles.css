@@ -27,11 +27,14 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background: linear-gradient(var(--blueDimmed) 84%, var(--backgroundRedDimmed) 87%);
   min-height: 100vh;
   margin: 0px 50px 20px;
   background-position: fixed;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
@@ -43,9 +46,9 @@ header {
 header h1 {
   font-size: 24px;
   font-weight: 900;
-  justify-self: flex-start
+  justify-self: flex-start;
+  color: var(--yellow);
 }
-
 
 #header-nav {
   justify-self: flex-end;
@@ -104,4 +107,8 @@ header h1 {
 
 .dropbtn .dropdown:hover {
   color: var(--black);
+}
+
+#main {
+  margin: 5px;
 }
