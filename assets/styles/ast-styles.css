@@ -9,9 +9,18 @@
   --backgroundRedDimmed: rgb(95, 27, 19);
 }
 
+textarea, pre, input {
+  font-family: "Consolas", "Menlo", "Courier", monospace;
+}
+
 /* Container */
 
 #ast-repl {
+  display: flex;
+  flex-direction: column
+}
+
+#repl-container {
   display: flex;
 }
 
@@ -26,7 +35,7 @@
 #console-display {
   width: 100%;
   min-width: calc(96vw/3);
-  height: 36vh;
+  height: 32vh;
   margin-left: 6px;
   display: flex;
   flex-direction: column;
@@ -60,8 +69,8 @@
   flex-direction: column;
   width: 100%;
   min-width: calc(96vw/3);
-  height: 36vh;
-  margin: 24px 0 0 6px;
+  height: 32vh;
+  margin: 12px 0 0 6px;
   background-color: var(--blue);
 }
 
@@ -70,7 +79,7 @@
 #output-ast-container {
   display: flex;
   flex-direction: column;
-  height: calc(36vh * 2 + 24px);
+  height: calc(32vh * 2 + 12px);
   width: 100%;
   margin: 0 16px;
   background-color: var(--blue);
@@ -79,4 +88,38 @@
 #output-display {
   display: flex;
   flex-direction: column;
+}
+
+/* Selector */
+
+#github-logo {
+  margin-top: 6px;
+  border-radius: 18px;
+  height: 28px;
+}
+
+#github-logo:hover {
+  background: var(--backgroundRedDimmed);
+}
+
+#selectorDisplay .label {
+  color: var(--yellow);
+  transition: border 0.3s cubic-bezier(1,0.66,.79,1),
+              color 0.3s cubic-bezier(1,0.66,.79,1);
+}
+
+#selector {
+  width: 100%;
+  height: 3.5em;
+  min-height: 2.2em;
+  margin-bottom: 20px;
+  padding: 6px 0 0 6px;
+  background-color: var(--blue);
+  color: var(--yellow);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  resize: vertical;
+  outline: none;
+  border: none;
 }
