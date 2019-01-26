@@ -4,6 +4,7 @@
   --black: rgba(39, 39, 39, 1);
   --red: rgba(250, 40, 30, 0.9);
   --blue: rgb(1, 90, 146);
+  --grey: hsl(192, 17%, 99%);
   --blueDimmed: rgb(0, 55, 88);
   --backgroundRed: rgb(222, 65, 48);
   --backgroundRedDimmed: rgb(95, 27, 19);
@@ -28,7 +29,8 @@ textarea, pre, input {
   align-self: center;
   font-size: 14px;
   margin-bottom: 2px;
-  color: var(--yellow);
+  /* color: var(--yellow); */
+  color: var(--grey);
 }
 /* Console */
 
@@ -54,7 +56,7 @@ textarea, pre, input {
   resize: none;
   font-size: 14px;
   background-color: inherit;
-  color: var(--yellow);
+  color: var(--grey);
   border: none;
 }
 
