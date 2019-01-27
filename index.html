@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/styles.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/ast-styles.css" />
-  <!-- <script src="main.js"></script> -->
+  <script src="scripts/esprima.js"></script>
+  <script type="text/javascript" src="scripts/esquery.js"></script>
+  <script src="scripts/repl.js" defer></script>
 </head>
 
 <body>
@@ -57,7 +59,7 @@ foo();
           <div id="query-tree-display">
             <span class="label">AST</span>
             
-            <pre id="selectorAst"></pre>
+            <pre id="selector-ast"></pre>
           </div>
         </div>
         <div id="output-ast-container">
@@ -68,22 +70,24 @@ foo();
         </div>
         
       </div>
-          <div id="selectorDisplay">
-            <div class="spread">
-              
-              <span class="label">
-                <button id="copyBtn">copy</button>
-                Selector
-                <span id="copyMessage">copied to clipboard</span>
-              </span>
-              <span id="results"></span>
-              <a href="#">
-                <img  id="github-logo" src="../assets/images/GitHub-64px.png" alt="GitHub logo">
-              </a>
-            </div>
-            <textarea id="selector" spellcheck="false">[id.name="bar"]</textarea>
+    </section>
+      <div id="display">
+        <div id="selector-display">
+          <div class="spread">
+            
+            <span class="label">
+              <button id="copy-button">copy</button>
+              Selector
+              <span id="copy-message">copied to clipboard</span>
+            </span>
+            <span id="results"></span>
+            <a href="#">
+              <img  id="github-logo" src="../assets/images/GitHub-64px.png" alt="GitHub logo">
+            </a>
           </div>
-      </section>
+          <textarea id="selector" spellcheck="false">[id.name="bar"]</textarea>
+        </div>
+      </div>
       
     </div id="main">
     

@@ -29,7 +29,6 @@ textarea, pre, input {
   align-self: center;
   font-size: 14px;
   margin-bottom: 2px;
-  /* color: var(--yellow); */
   color: var(--grey);
 }
 /* Console */
@@ -46,6 +45,14 @@ textarea, pre, input {
               color 0.3s cubic-bezier(1,0.66,.79,1);
 }
 
+#console-display.highlight {
+  border-color: rgb(252, 154, 154);
+}
+
+#console-display .label.highlight {
+  color: rgb(252, 154, 154);
+}
+
 #console-display span {
   align-self: center;
 }
@@ -58,11 +65,15 @@ textarea, pre, input {
   background-color: inherit;
   color: var(--grey);
   border: none;
-}
-
-#console-source {
   outline: none;
 }
+
+
+#console-source.highlight {
+  color: rgb(252, 154, 154);
+  caret-color: rgb(165, 90, 250);
+}
+
 
 /* AST Display */
 
@@ -92,6 +103,58 @@ textarea, pre, input {
   flex-direction: column;
 }
 
+/* Copy Button */
+
+#copy-button {
+  position: relative;
+  bottom: 3px;
+  height: 2.5em;
+  padding: 0 10px 2px;
+  margin-right: 2vw;
+  font-weight: bold;
+  font-size: 0.6em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(7, 136, 138);
+  border: 4px solid rgb(34, 41, 45);
+  border-top: 2px solid rgb(34, 41, 45);
+  border-bottom: 2px solid rgb(34, 41, 45);
+  border-radius: 5px;
+  background-color: rgb(22, 25, 31);
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(1,0.66,.79,1);
+}
+
+#copy-button:hover {
+  color: rgb(105, 249, 198);
+  background-color: rgb(34, 41, 45);
+}
+
+#copy-button.highlight {
+  color: rgb(105, 249, 198);
+  border-color: rgb(15, 220, 148);
+  transform: scale(0.95);
+}
+
+*.highlight {
+  transition: 0.3s cubic-bezier(1,0.66,.79,1.88);
+}
+
+#copy-message {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 30vw;
+  color: rgb(7, 136, 138);
+  width: 25%;
+}
+
+#copy-message.show {
+  display: initial;
+  opacity: 0;
+  animation: 1.2s fadeUp ease-in;
+}
+
 /* Selector */
 
 #github-logo {
@@ -104,7 +167,7 @@ textarea, pre, input {
   background: var(--backgroundRedDimmed);
 }
 
-#selectorDisplay .label {
+#selector-display .label {
   color: var(--yellow);
   transition: border 0.3s cubic-bezier(1,0.66,.79,1),
               color 0.3s cubic-bezier(1,0.66,.79,1);
@@ -117,11 +180,37 @@ textarea, pre, input {
   margin-bottom: 20px;
   padding: 6px 0 0 6px;
   background-color: var(--blue);
-  color: var(--yellow);
+  color: var(--grey);
   white-space: pre-wrap;
   word-wrap: break-word;
   word-break: break-all;
   resize: vertical;
   outline: none;
   border: none;
+}
+
+#selector-display .highlight {
+  color: rgb(105, 249, 198);
+}
+
+#selector.highlight {
+  color: rgb(105, 249, 198);
+  background-color: pink;
+  border-color: rgb(15, 220, 148);
+}
+
+/* Other */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0.25;
+  }
+  25%, 60% {
+    top: 24px;
+    opacity: 1;
+  }
+  100% {
+    top: -70px;
+    opacity: 0;
+  }
 }
