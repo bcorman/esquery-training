@@ -1,0 +1,25 @@
+{
+  "name": "ast-training-repl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcorman/ast-training-repl.git"
+  },
+  "author": "Ben Corman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcorman/ast-training-repl/issues"
+  },
+  "homepage": "https://github.com/bcorman/ast-training-repl#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  },
+  "dependencies": {}
+}

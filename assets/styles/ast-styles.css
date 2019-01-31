@@ -11,7 +11,9 @@
 }
 
 textarea, pre, input {
-  font-family: "Consolas", "Menlo", "Courier", monospace;
+  font-family: "Inconsolata", "Menlo", "Courier", monospace;
+  font-size: 18px;
+  overflow: auto;
 }
 
 /* Container */
@@ -96,11 +98,13 @@ textarea, pre, input {
   width: 100%;
   margin: 0 16px;
   background-color: var(--blue);
+  overflow: auto;
 }
 
 #output-display {
   display: flex;
   flex-direction: column;
+  font-size: 18px;
 }
 
 /* Copy Button */
@@ -194,9 +198,7 @@ textarea, pre, input {
 }
 
 #selector.highlight {
-  color: rgb(105, 249, 198);
-  background-color: pink;
-  border-color: rgb(15, 220, 148);
+  color: var(--yellow);
 }
 
 /* Other */

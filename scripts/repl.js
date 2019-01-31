@@ -8,25 +8,24 @@ const display = document.getElementById('display');
 const selectorLabel = document.querySelector('#selector-display .label');
 const sourceLabel = document.querySelector('#console-display .label');
 const sourceDisplay = document.querySelector('#console-display');
-// const outputDisplay = document.getElementById('output-display');
 
-const highlightSelector = (e) => {
+const highlightSelector = () => {
   selectorLabel.classList.add('highlight');
   selectorNode.classList.add('highlight');
 };
 
-const unHighlightSelector = (e) => {
+const unHighlightSelector = () => {
   selectorLabel.classList.remove('highlight');
   selectorNode.classList.remove('highlight');
 };
 
-const highlightSource = (e) => {
+const highlightSource = () => {
   sourceLabel.classList.add('highlight');
   sourceDisplay.classList.add('highlight');
   sourceNode.classList.add('highlight');
 };
 
-const unHighlightSource = (e) => {
+const unHighlightSource = () => {
   sourceLabel.classList.remove('highlight');
   sourceDisplay.classList.remove('highlight');
   sourceNode.classList.remove('highlight');
@@ -35,7 +34,7 @@ const unHighlightSource = (e) => {
 const copyConfirmation = () => {
   const copyMessage = document.getElementById('copy-message');
   copyMessage.classList.add('show');
-  setTimeout(e => copyMessage.classList.remove('show'), 1000);
+  setTimeout(() => copyMessage.classList.remove('show'), 1000);
 };
 
 const copyQuery = (e) => {
@@ -61,12 +60,11 @@ const update = () => {
   let ast;
 
   try {
-    ast = esprima.parse(sourceNode.value);
+    ast = esprima.parse(sourceNode.value, { sourceType: 'module' });
   } catch (e) {
     isSourceValid = false;
-    console.log(e);
   }
-  let selector = selectorNode.value.replace(/\n/g, ''); // remove line breaks from query string
+  const selector = selectorNode.value.replace(/\n/g, ''); // remove line breaks from query string
   selectorAstNode.innerHTML = '';
   outputNode.innerHTML = '';
 
@@ -79,7 +77,7 @@ const update = () => {
   }
 
   try {
-    selectorAst = esquery.parse(selector);
+    selectorAst = esquery.parse(selector, { sourceType: 'module' });
   } catch (e) {
     isSelectorValid = false;
     selectorAstOutput = e.message;
@@ -103,13 +101,18 @@ const update = () => {
   selectorAstNode.appendChild(document.createTextNode(selectorAstOutput));
 
   const numMatches = matches ? matches.length : 0;
-  const duration = Math.round((end - start) * Math.pow(10, 2)) / Math.pow(10, 2);
-
+  const duration = Math.round((end - start) * (10 ** 2)) / (10 ** 2);
   const invalidSource = `<span id='numMatches'></span>Invalid Source Code`;
   const invalidSelector = `<span id='numMatches'></span>Invalid Selector`;
-  const resultsMessage = `<span id='numMatches'>${numMatches}</span> node${numMatches === 1 ? '':'s'} found in ${duration} ms`;
+  const resultsMessage = `<span id='numMatches'>${numMatches}</span> node${numMatches === 1 ? '' : 's'} found in ${duration} ms`;
 
-  resultsNode.innerHTML = isSourceValid && isSelectorValid ? resultsMessage : isSourceValid ? invalidSelector : invalidSource;
+  if (isSourceValid && isSelectorValid) {
+    resultsNode.innerHTML = resultsMessage;
+  } else if (isSourceValid) {
+    resultsNode.innerHTML = invalidSelector;
+  } else {
+    resultsNode.innerHTML = invalidSource;
+  }
 
   const positiveStyle = () => {
     display.classList.remove('bad');
@@ -123,7 +126,12 @@ const update = () => {
     resultsNode.classList.add('bad');
   };
 
-  numMatches ? positiveStyle() : negativeStyle();
+  if (numMatches) {
+    positiveStyle();
+  } else {
+    negativeStyle();
+  }
+
   outputNode.innerHTML = matchesOutput;
 };
 
