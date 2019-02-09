@@ -4,94 +4,55 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AST Training REPL</title>
+  <title>AST Training</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/styles.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/ast-styles.css" />
   <script src="scripts/esprima.js"></script>
   <script type="text/javascript" src="scripts/esquery.js"></script>
   <script src="scripts/repl.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a href="../index.html">
-      <h1 id="banner">Ben Corman</h1>
-    </a>
-    <nav id="header-nav">
-      <ul>
-        <div class="dropdown">
-          <li class="dropbtn" id="projects-link">Projects</li>
-          <div class="dropdown-content">
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/bcorman/query-lint-vscode">Query-Lint
-              VS Code</a>
-            <a target="_blank" rel="noopener noreferrer" href="#">AST Training</a>
-          </div>
-        </div>
-        <a href="#">
-          <li id="about-link">About</li>
-        </a>
-        <a href="#">
-          <li id="contact-link">Contact</li>
-        </a>
-      </ul>
-    </nav>
-  </header>
-  <div id="main">
-    <section id="ast-repl">
-      <div id="repl-container">
 
-        <div id="console-container">
-          
-          <div id="console-display">
-            <span class="label">Source</span>
-            
-            <!-- This indentation affects the indentation of the text in the textarea -->
-<textarea id="console-source" spellcheck="false" wrap="off" >
+  <header>
+    <h1 id="banner">AST Training</h1>
+  </header>
+
+  <div id="console-display" class="console">
+    <span class="label">Source</span>
+
+    <!-- This indentation affects the indentation of the text in the textarea -->
+    <textarea id="console-source" spellcheck="false" wrap="off">
 let foo = bar => {
   return bar * 7;
 }
 
 foo();
 </textarea>
-            
-          </div>
-          <div id="query-tree-display">
-            <span class="label">AST</span>
-            
-            <pre id="selector-ast"></pre>
-          </div>
-        </div>
-        <div id="output-ast-container">
-          <div id="output-display">
-            <span class="label">Output</span>
-            <pre id="output"></pre>
-          </div>  
-        </div>
-        
+
+  </div>
+
+  <div id="output-ast-container" class="console">
+    <div id="output-display">
+      <span class="label">Output</span>
+      <pre id="output"></pre>
+    </div>
+  </div>
+
+    <div id="selector-display">
+      <div class="spread">
+
+        <span class="label">
+          <button id="copy-button">copy</button>
+          Selector
+          <span id="copy-message">copied to clipboard</span>
+        </span>
+        <span id="results"></span>
       </div>
-    </section>
-      <div id="display">
-        <div id="selector-display">
-          <div class="spread">
-            
-            <span class="label">
-              <button id="copy-button">copy</button>
-              Selector
-              <span id="copy-message">copied to clipboard</span>
-            </span>
-            <span id="results"></span>
-            <a href="#">
-              <img  id="github-logo" src="./assets/images/GitHub-64px.png" alt="GitHub logo">
-            </a>
-          </div>
-          <textarea id="selector" spellcheck="false">[id.name="bar"]</textarea>
-        </div>
-      </div>
-      
-    </div id="main">
-    
+      <textarea id="selector" spellcheck="false">[id.name="foo"]</textarea>
+    </div>
+
 </body>
 
 </html>
