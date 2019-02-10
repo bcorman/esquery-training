@@ -32,6 +32,7 @@ body {
 
 textarea, pre, input {
   font-family: "Consolas", "Menlo", "Courier", monospace;
+  padding-left: 6px;
 }
 
 header {
@@ -51,6 +52,7 @@ header {
   min-height: 300px;
   min-width: 300px;
   border: 1px solid var(--black);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
 }
@@ -65,17 +67,22 @@ header {
 }
 
 #output-title {
+  font-size: 12px;
   display: flex;
   justify-content: center;
+  margin-bottom: 12px;
 
 }
 
 .label {
+  font-size: 12px;
   align-self: center;
+  margin-bottom: 12px;
 }
 
 #console-display textarea {
-  height: 100%;
+  height: 96%;
+  margin-bottom: 6px;
   overflow: scroll;
   resize: none;
   border: none;
