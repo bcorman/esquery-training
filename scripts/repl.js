@@ -7,7 +7,7 @@ const selectorDisplay = document.getElementById('selector-display');
 const copyConfirmation = () => {
   const copyMessage = document.getElementById('copy-message');
   copyMessage.classList.add('show');
-  setTimeout(() => copyMessage.classList.remove('show'), 1000);
+  setTimeout(() => copyMessage.classList.remove('show'), 1500);
 };
 
 const copyQuery = () => {

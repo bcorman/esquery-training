@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bcorman/ast-training-repl.git"
+    "url": "git+https://github.com/bcorman/bcorman.github.io/esquery-training.git"
   },
   "author": "Ben Corman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bcorman/ast-training-repl/issues"
+    "url": "https://github.com/bcorman/bcorman.github.io/esquery-training/issues"
   },
-  "homepage": "https://github.com/bcorman/ast-training-repl#readme",
+  "homepage": "https://github.com/bcorman/bcorman.github.io/esquery-training#readme",
   "devDependencies": {
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",

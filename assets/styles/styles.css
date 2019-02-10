@@ -121,14 +121,22 @@ header {
   padding: 0 10px 2px;
   margin-right: 12px;
   font-weight: bold;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border: 1px solid var(--black);
   border-radius: 5px;
   outline: none;
-  transition: 0.25s cubic-bezier(1,0.66,.79,1);
+  transition: 0.1s cubic-bezier(1,0.66,.79,1);
   cursor: pointer;
 }
 
-#copy-button:hover {
-  background-color: rgb(212, 212, 212);
+#copy-button:active {
+  background-color: rgb(236, 236, 236);
+  transform: translateY(2px);
+}
+
+#copy-message {
+  display: none;
+}
+
+#copy-message.show {
+  display: inline;
 }
