@@ -1,8 +1,10 @@
-const sourceNode = document.getElementById('console-source');
+const codeConsole = document.getElementById('console-source');
 const selectorNode = document.getElementById('selector');
-const outputNode = document.getElementById('output');
+const outputConsole = document.getElementById('output');
 const resultsNode = document.getElementById('results');
 const selectorDisplay = document.getElementById('selector-display');
+const copyButton = document.getElementById('copy-button');
+const promptButton = document.getElementById('prompt-button');
 
 const copyConfirmation = () => {
   const copyMessage = document.getElementById('copy-message');
@@ -27,12 +29,12 @@ const update = () => {
   let ast;
 
   try {
-    ast = esprima.parse(sourceNode.value, { sourceType: 'module' });
+    ast = esprima.parse(codeConsole.value, { sourceType: 'module' });
   } catch (e) {
     isSourceValid = false;
   }
   const selector = selectorNode.value.replace(/\n/g, ''); // remove line breaks from query string
-  outputNode.innerHTML = '';
+  outputConsole.innerHTML = '';
 
   let start; let end; let selectorAst; let matches; let matchesOutput;
 
@@ -94,16 +96,14 @@ const update = () => {
     negativeStyle();
   }
 
-  outputNode.innerHTML = matchesOutput;
+  outputConsole.innerHTML = matchesOutput;
 };
 
 update();
 
-sourceNode.addEventListener('change', update);
-sourceNode.addEventListener('keyup', update);
+codeConsole.addEventListener('change', update);
+codeConsole.addEventListener('keyup', update);
 selectorNode.addEventListener('change', update);
 selectorNode.addEventListener('keyup', update);
-
-const copyBtn = document.getElementById('copy-button');
-
-copyBtn.addEventListener('mousedown', copyQuery);
+copyButton.addEventListener('mousedown', copyQuery);
+promptButton.addEventListener('click', showPrompt);

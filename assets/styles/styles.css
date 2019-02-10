@@ -17,13 +17,15 @@ html {
   text-shadow: 0 2px 0 rbga(0, 0, 0, 0.1);
 }
 
+body {
+  margin: 22px;
+}
 main {
   display: grid;
-  margin: 22px;
   grid-template: 
                 "header header header"
                 "console output output"
-                "copy . ."
+                "controls prompt prompt"
                 "query query query";
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 12px;
@@ -32,7 +34,7 @@ main {
   grid-auto-rows: auto;
 }
 
-textarea, pre, input {
+main textarea, main pre, main input {
   font-family: "Consolas", "Menlo", "Courier", monospace;
   padding-left: 6px;
 }
@@ -125,20 +127,25 @@ button {
   border: 1px solid var(--black);
   border-radius: 5px;
   outline: none;
-  transition: 0.1s cubic-bezier(1,0.66,.79,1);
+  transition: 0.3s cubic-bezier(1,0.66,.79,1);
   cursor: pointer;
 }
 
-#copy-button-div {
-  grid-area: copy;
+#controls {
+  grid-area: controls;
+  display: flex;
+  justify-content: space-between;
+}
+
+.control {
+  padding: 0 10px 2px;
 }
 
 #copy-button {
-  padding: 0 10px 2px;
   margin-right: 12px;
 }
 
-#copy-button:active {
+button:active {
   background-color: rgb(236, 236, 236);
   transform: translateY(2px);
 }
