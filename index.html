@@ -43,14 +43,14 @@ foo();
     </div>
   </div>
 
-  <div id="selector-display">
-    <div class="spread">
+  <div class="spread" id="copy-button-div">
+    <span class="label">
+      <button id="copy-button">Copy</button>
+      <span id="copy-message">Query copied to clipboard</span>
+    </span>
+  </div>
 
-      <span class="label">
-        <button id="copy-button">Copy</button>
-        <span id="copy-message">Query copied to clipboard</span>
-      </span>
-    </div>
+  <div id="selector-display">
     <textarea id="selector" spellcheck="false">[id.name="foo"]</textarea>
   </div>
 
