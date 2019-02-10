@@ -17,7 +17,7 @@ html {
   text-shadow: 0 2px 0 rbga(0, 0, 0, 0.1);
 }
 
-body {
+main {
   display: grid;
   margin: 22px;
   grid-template: 
@@ -29,6 +29,7 @@ body {
   column-gap: 12px;
   grid-template-rows: auto auto auto 1fr;
   row-gap: 12px;
+  grid-auto-rows: auto;
 }
 
 textarea, pre, input {
@@ -117,21 +118,24 @@ header {
   outline: none;
 }
 
-#copy-button-div {
-  grid-area: copy;
-}
-
-#copy-button {
+button {
   height: 3em;
   width: 6em;
-  padding: 0 10px 2px;
-  margin-right: 12px;
   font-weight: bold;
   border: 1px solid var(--black);
   border-radius: 5px;
   outline: none;
   transition: 0.1s cubic-bezier(1,0.66,.79,1);
   cursor: pointer;
+}
+
+#copy-button-div {
+  grid-area: copy;
+}
+
+#copy-button {
+  padding: 0 10px 2px;
+  margin-right: 12px;
 }
 
 #copy-button:active {

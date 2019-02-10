@@ -14,16 +14,16 @@
 </head>
 
 <body>
+  <main>
+    <header>
+      <h1 id="banner">ESQuery Console</h1>
+    </header>
 
-  <header>
-    <h1 id="banner">ESQuery Console</h1>
-  </header>
+    <div id="console-display" class="console">
+      <span class="label">Source</span>
 
-  <div id="console-display" class="console">
-    <span class="label">Source</span>
-
-    <!-- This indentation affects the indentation of the text in the textarea -->
-    <textarea id="console-source" spellcheck="false" wrap="off">
+      <!-- This indentation affects the indentation of the text in the textarea -->
+      <textarea id="console-source" spellcheck="false" wrap="off">
 let foo = bar => {
   return bar * 7;
 }
@@ -31,27 +31,45 @@ let foo = bar => {
 foo();
 </textarea>
 
-  </div>
-
-  <div id="output-ast-container" class="console">
-    <div id="output-display">
-      <div id="output-title">
-        <span>Output</span>
-        <span id="results"></span>
-      </div>
-      <pre id="output"></pre>
     </div>
-  </div>
 
-  <div class="spread" id="copy-button-div">
-    <span class="label">
-      <button id="copy-button">Copy</button>
-      <span id="copy-message">Query copied to clipboard</span>
-    </span>
-  </div>
+    <div id="output-ast-container" class="console">
+      <div id="output-display">
+        <div id="output-title">
+          <span>Output</span>
+          <span id="results"></span>
+        </div>
+        <pre id="output"></pre>
+      </div>
+    </div>
 
-  <div id="selector-display">
-    <textarea id="selector" spellcheck="false">[id.name="foo"]</textarea>
+    <div class="spread" id="copy-button-div">
+      <span class="label">
+        <button id="copy-button">Copy</button>
+        <span id="copy-message">Query copied to clipboard</span>
+      </span>
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+    <div id="selector-display">
+      <textarea id="selector" spellcheck="false">[id.name="foo"]</textarea>
+    </div>
+
+    <div>
+      <button id="tutorial-button">Show Tutorial</button>
+    </div>
+  </main>
+  <div class="challenge">
+    <div class="challenge-code">
+
+    </div>
+    <div class="answer-code">
+
+    </div>
   </div>
 
 </body>
