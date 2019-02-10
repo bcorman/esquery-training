@@ -16,7 +16,7 @@
 <body>
 
   <header>
-    <h1 id="banner">AST Training</h1>
+    <h1 id="banner">ESQuery Console</h1>
   </header>
 
   <div id="console-display" class="console">
@@ -35,7 +35,10 @@ foo();
 
   <div id="output-ast-container" class="console">
     <div id="output-display">
-      <span class="label">Output</span>
+      <div id="output-title">
+        <span>Output</span>
+        <span id="results"></span>
+      </div>
       <pre id="output"></pre>
     </div>
   </div>
@@ -44,11 +47,10 @@ foo();
       <div class="spread">
 
         <span class="label">
-          <button id="copy-button">copy</button>
+          <button id="copy-button">Copy</button>
           Selector
           <span id="copy-message">copied to clipboard</span>
         </span>
-        <span id="results"></span>
       </div>
       <textarea id="selector" spellcheck="false">[id.name="foo"]</textarea>
     </div>

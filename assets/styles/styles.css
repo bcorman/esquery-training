@@ -39,7 +39,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--black);
 }
 
 #banner, #banner {
@@ -55,6 +54,7 @@ header {
   display: flex;
   flex-direction: column;
 }
+
 #console-display {
   grid-area: console;
 }
@@ -63,6 +63,13 @@ header {
   display: flex;
   flex-direction: column;
 }
+
+#output-title {
+  display: flex;
+  justify-content: center;
+
+}
+
 .label {
   align-self: center;
 }
@@ -86,13 +93,13 @@ header {
   flex-direction: column;
 }
 
-#selector-display .spread {
+/* #selector-display .spread {
   display: flex;
   justify-content: center;
-}
+} */
 
 #results {
-  margin-left: 6px;
+  margin-left: 24px;
 }
 
 #selector {
@@ -104,4 +111,24 @@ header {
   border-radius: 5px;
   resize: vertical;
   outline: none;
+}
+
+#copy-button {
+  position: relative;
+  bottom: 3px;
+  height: 3em;
+  width: 6em;
+  padding: 0 10px 2px;
+  margin-right: 12px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  outline: none;
+  transition: 0.25s cubic-bezier(1,0.66,.79,1);
+  cursor: pointer;
+}
+
+#copy-button:hover {
+  background-color: rgb(212, 212, 212);
 }
