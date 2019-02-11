@@ -54,7 +54,7 @@ if (array.length) {
   {
     text: `Write a set of triggers to validate that this code is complete.`,
     code: `// Starter Code
-for (var element of ['snap', 'crackle', 'pop']) {\n}\n
+for (var element of ['snap', 'crackle', 'pop']) {\n\n}\n
 // Solution Code
 for (var element of ['snap', 'crackle', 'pop']) {
   if (element === 'pop') {
