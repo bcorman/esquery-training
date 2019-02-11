@@ -74,6 +74,17 @@ for (var element of ['snap', 'crackle', 'pop']) {
     text: `Trigger if the variable name starts with a capital letter.`,
     code: `var Pascal = 'PascalCase';\nvar camel = 'camelCase';`,
   },
+  {
+    text: `Stretch Goal: Write a series of triggers to check for the correct solution, no matter what numbers are in the input array. This will require using ifExecutionContainsSequence().`,
+    code: `const fahrenheit = [88, 82, 66, 25, 57, 90];\n
+const kelvin = centimeters.map(temp => {
+  return (temp - 32) * 5/9 + 273.15;
+});
+
+for (temp in kelvin) {
+  console.log(temp);
+}`,
+  }
 ];
 
 const cyclePrompt = (e) => {
