@@ -9,6 +9,11 @@ const promptText = document.getElementById('prompt');
 
 let currentPrompt = Number(localStorage.getItem('currentPrompt'));
 
+if (!currentPrompt) {
+  localStorage.setItem('currentPrompt', 0);
+  currentPrompt = 0;
+}
+
 const prompts = [
   {
     text: `Trigger if the fruit variable has the value 'banana'.`,
@@ -47,7 +52,7 @@ if (array.length) {
 }`,
   },
   {
-    text: `Write a set of triggers to validate that this puzzle is complete`,
+    text: `Write a set of triggers to validate that this code is complete.`,
     code: `// Starter Code
 for (var element of ['snap', 'crackle', 'pop']) {\n}\n
 // Solution Code
@@ -57,13 +62,25 @@ for (var element of ['snap', 'crackle', 'pop']) {
   }
 }`,
   },
+  {
+    text: `Trigger if any property contains a single string instead of an array of strings.`,
+    code: `var backpack = {
+  food: ['bananas', 'chocolate', 'berries'],
+  equipment: 'map, binoculars, light',
+  clothing: 'hat, shirt, jacket'
+};`,
+  },
+  {
+    text: `Trigger if the variable name starts with a capital letter.`,
+    code: `var Pascal = 'PascalCase';\nvar camel = 'camelCase';`,
+  },
 ];
 
 const cyclePrompt = (e) => {
   e.preventDefault();
-  currentPrompt === prompts.length - 1 ? currentPrompt = 0 : currentPrompt++;
   localStorage.setItem('currentPrompt', currentPrompt);
   updatePrompt();
+  currentPrompt === prompts.length - 1 ? currentPrompt = 0 : currentPrompt++;
 };
 
 const updatePrompt = () => {
@@ -173,12 +190,5 @@ selectorNode.addEventListener('keyup', update);
 copyButton.addEventListener('mousedown', copyQuery);
 promptButton.addEventListener('mousedown', cyclePrompt);
 promptButton.addEventListener('mousedown', update);
-
-if (!currentPrompt) {
-  localStorage.setItem('currentPrompt', 0);
-  currentPrompt = 0;
-} else {
-  updatePrompt();
-};
 
 update();
