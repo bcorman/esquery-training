@@ -17,9 +17,8 @@
   },
   "homepage": "https://github.com/bcorman/esquery-training#readme",
   "devDependencies": {
-    "eslint": "^5.12.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "eslint": "^5.13.0",
+    "eslint-config-google": "^0.12.0"
   },
   "dependencies": {}
 }

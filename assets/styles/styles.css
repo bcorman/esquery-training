@@ -157,3 +157,11 @@ button:active {
 #copy-message.show {
   display: inline;
 }
+
+#prompt {
+  grid-area: prompt
+}
+
+.prompt-text {
+  margin-left: 12px;
+}
