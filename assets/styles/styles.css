@@ -1,12 +1,5 @@
 :root {
-  --yellow: rgba(255, 198, 0, 1);
-  --white: rgba(240, 240, 240, 1);
   --black: rgba(39, 39, 39, 1);
-  --red: rgba(250, 40, 30, 0.9);
-  --blue: rgb(1, 90, 146);
-  --blueDimmed: rgb(0, 55, 88);
-  --backgroundRed: rgb(222, 65, 48);
-  --backgroundRedDimmed: rgb(95, 27, 19);
 }
 
 html {
