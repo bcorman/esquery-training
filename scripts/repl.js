@@ -15,9 +15,7 @@ if (!currentPrompt) {
   currentPrompt = 0;
 }
 
-if (!isDark) {
-  localStorage.setItem('isDark', false);
-} else {
+if (isDark) {
   document.getElementsByTagName('body')[0].setAttribute('class', 'dark');
 }
 
