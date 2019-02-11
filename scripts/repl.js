@@ -21,7 +21,7 @@ const prompts = [
   },
   {
     text: `Trigger if the code is printing a string instead of an identifier, 
-      for example: print('i') instead of print(i).`,
+      for example: print('i') instead of print(i). Strings will always use single quotes, and there will be no template strings.`,
     code: `print(identifier);\nprint('string')`,
   },
   {
@@ -33,11 +33,11 @@ const prompts = [
     code: `if (x === 3) {\n  foo();\n}\n\nif (3 === x) {\n  bar();\n}`,
   },
   {
-    text: `Trigger if the num variable is a string instead of a number. Strings will always use single quotes.`,
+    text: `Trigger if the num variable is a string instead of a number. Strings will always use single quotes, and there will be no template strings.`,
     code: `var num = '10';`,
   },
   {
-    text: `Trigger if the array contains only 'food', 'equipment', and 'clothing'.`,
+    text: `Match the array that contains only 'food', 'equipment', and 'clothing'.`,
     code: `var goodBackpack = ['food', 'equipment', 'clothing'];
 var badBackpack = ['food', 'coal', 'cats', 'equipment', 'clothing'];
 var worseBackpack = ['garbage'];`,
@@ -84,7 +84,13 @@ const kelvin = centimeters.map(temp => {
 for (temp in kelvin) {
   console.log(temp);
 }`,
-  }
+  },
+  {
+    text: `Stretch: Trigger if the code has an if statement that checks if x === 3 && y < 7. Match any commutation. Hint: write 8 separate queries and combine with ||.`,
+    code: `if (x === 3 && y < 7) {
+  taco();
+}`,
+  },
 ];
 
 const cyclePrompt = (e) => {
