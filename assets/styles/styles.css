@@ -1,5 +1,7 @@
 :root {
   --black: rgba(39, 39, 39, 1);
+  --white: rgba(230, 230, 230, 1);
+  --grey: rgb(59, 59, 59);
 }
 
 html {
@@ -13,6 +15,11 @@ html {
 body {
   margin: 22px;
 }
+
+body.dark {
+  background-color: var(--black);
+}
+
 main {
   display: grid;
   grid-template: 
@@ -35,13 +42,22 @@ main textarea, main pre, main input {
 header {
   grid-area: header;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-#banner, #banner {
+#dark-toggle {
+  align-self: flex-start;
+}
+
+#banner {
   color: var(--black);
   font-size: 24px;
+  margin: 0px;
+}
+
+.dark #banner {
+  color: var(--white)
 }
 
 .console {
@@ -52,6 +68,11 @@ header {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.dark .console {
+  background-color: var(--grey);
+  color: var(--white);
 }
 
 #console-display {
@@ -88,6 +109,11 @@ header {
   padding: 6px 10px;
 }
 
+.dark #console-display textarea {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
 #output-ast-container {
   grid-area: output;
   overflow: scroll;
@@ -98,6 +124,7 @@ header {
   display: flex;
   flex-direction: column;
 }
+
 
 #results {
   margin-left: 24px;
@@ -113,6 +140,11 @@ header {
   outline: none;
 }
 
+.dark #selector {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
 button {
   height: 3em;
   width: 6em;
@@ -122,6 +154,11 @@ button {
   outline: none;
   transition: 0.3s cubic-bezier(1,0.66,.79,1);
   cursor: pointer;
+}
+
+.dark button {
+  background-color: var(--grey);
+  color: var(--white);
 }
 
 #controls {
@@ -151,10 +188,18 @@ button:active {
   display: inline;
 }
 
+.dark #copy-message {
+  color: var(--white);
+}
+
 #prompt {
   grid-area: prompt
 }
 
 .prompt-text {
   margin-left: 12px;
+}
+
+.dark .prompt-text {
+  color: var(--white);
 }
