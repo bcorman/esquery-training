@@ -16,6 +16,10 @@ if (!currentPrompt) {
 
 const prompts = [
   {
+    text: `Instructions: Write your solution code in VS Code or equivalent IDE.`,
+    code: `goodLuck();`,
+  },
+  {
     text: `Trigger if the fruit variable has the value 'banana'.`,
     code: `var fruit = 'banana';`,
   },
@@ -73,6 +77,22 @@ for (var element of ['snap', 'crackle', 'pop']) {
   {
     text: `Trigger if the variable name starts with a capital letter.`,
     code: `var Pascal = 'PascalCase';\nvar camel = 'camelCase';`,
+  },
+  {
+    text: `Write completion and feedback triggers for this code.`,
+    code: `// Starter Code
+let ball = svg.append('circle');
+
+ball.on('click', () => {
+  ball.attr('r', 25).attr('cx', 100).attr('cy', 25).attr('fill', 'red');
+})
+  
+// Solution Code
+let ball = svg.append('circle');
+
+ball.on('click', () => {
+  ball.attr('r', 25).attr('cx', 100).attr('cy', 25).attr('fill', pickRandom(color));
+});`,
   },
   {
     text: `Stretch Goal: Write a series of triggers to check for the correct solution, no matter what numbers are in the input array. This will require using ifExecutionContainsSequence().`,
