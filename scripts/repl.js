@@ -2,13 +2,13 @@ const codeConsole = document.getElementById('console-source');
 const selectorNode = document.getElementById('selector');
 const outputConsole = document.getElementById('output');
 const resultsNode = document.getElementById('results');
-const selectorDisplay = document.getElementById('selector-display');
 const copyButton = document.getElementById('copy-button');
+const darkButton = document.getElementById('dark-toggle');
 const promptButton = document.getElementById('prompt-button');
 const promptText = document.getElementById('prompt');
 
 let currentPrompt = Number(localStorage.getItem('currentPrompt'));
-
+let isDark = localStorage.getItem('isDark');
 if (!currentPrompt) {
   localStorage.setItem('currentPrompt', 0);
   currentPrompt = 0;
@@ -199,26 +199,24 @@ const update = () => {
     resultsNode.innerHTML = invalidSource;
   }
 
-  const positiveStyle = () => {
-    selectorDisplay.classList.remove('bad');
-    resultsNode.classList.remove('bad');
-    resultsNode.classList.add('good');
-  };
-
-  const negativeStyle = () => {
-    selectorDisplay.classList.add('bad');
-    resultsNode.classList.remove('good');
-    resultsNode.classList.add('bad');
-  };
-
-  if (numMatches) {
-    positiveStyle();
-  } else {
-    negativeStyle();
-  }
-
   outputConsole.innerHTML = matchesOutput;
 };
+
+const toggleTheme = () => {
+  isDark = !isDark;
+  localStorage.setItem('isDark', !isDark);
+  if (!isDark) {
+    document.getElementsByTagName('body')[0].setAttribute('class', 'dark');
+  } else {
+    document.getElementsByTagName('body')[0].setAttribute('class', '');
+  }
+};
+
+if (isDark === null) {
+  localStorage.setItem('isDark', false);
+} else if (isDark) {
+  toggleTheme();
+}
 
 codeConsole.addEventListener('change', update);
 codeConsole.addEventListener('keyup', update);
@@ -227,5 +225,6 @@ selectorNode.addEventListener('keyup', update);
 copyButton.addEventListener('mousedown', copyQuery);
 promptButton.addEventListener('mousedown', cyclePrompt);
 promptButton.addEventListener('mousedown', update);
+darkButton.addEventListener('mousedown', toggleTheme);
 
 update();
