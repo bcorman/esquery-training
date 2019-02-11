@@ -8,10 +8,17 @@ const promptButton = document.getElementById('prompt-button');
 const promptText = document.getElementById('prompt');
 
 let currentPrompt = Number(localStorage.getItem('currentPrompt'));
-let isDark = localStorage.getItem('isDark');
+let isDark = JSON.parse(localStorage.getItem('isDark'));
+
 if (!currentPrompt) {
   localStorage.setItem('currentPrompt', 0);
   currentPrompt = 0;
+}
+
+if (!isDark) {
+  localStorage.setItem('isDark', false);
+} else {
+  document.getElementsByTagName('body')[0].setAttribute('class', 'dark');
 }
 
 const prompts = [
@@ -211,10 +218,6 @@ const toggleTheme = () => {
     document.getElementsByTagName('body')[0].setAttribute('class', '');
   }
 };
-
-if (isDark === null) {
-  localStorage.setItem('isDark', false);
-}
 
 codeConsole.addEventListener('change', update);
 codeConsole.addEventListener('keyup', update);
