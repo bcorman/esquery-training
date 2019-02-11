@@ -68,7 +68,7 @@ const cyclePrompt = (e) => {
 
 const updatePrompt = () => {
   codeConsole.innerHTML = prompts[currentPrompt].code;
-  promptText.innerHTML = `<h3 class="prompt-text">${currentPrompt + 1} of ${prompts.length} ${prompts[currentPrompt].text}</h3>`;
+  promptText.innerHTML = `<h3 class="prompt-text">${currentPrompt + 1} of ${prompts.length}: ${prompts[currentPrompt].text}</h3>`;
 };
 
 const copyConfirmation = () => {
