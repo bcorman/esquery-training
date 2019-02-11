@@ -214,8 +214,6 @@ const toggleTheme = () => {
 
 if (isDark === null) {
   localStorage.setItem('isDark', false);
-} else if (isDark) {
-  toggleTheme();
 }
 
 codeConsole.addEventListener('change', update);
