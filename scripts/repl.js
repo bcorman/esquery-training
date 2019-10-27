@@ -160,7 +160,11 @@ const update = () => {
   const selector = selectorNode.value.replace(/\n/g, '');
   outputConsole.innerHTML = '';
 
-  let start; let end; let selectorAst; let matches; let matchesOutput;
+  let start;
+  let end;
+  let selectorAst;
+  let matches;
+  let matchesOutput;
 
   try {
     start = performance.now();
