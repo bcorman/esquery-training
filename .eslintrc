@@ -1,5 +1,8 @@
 {
-  "extends": "google",
+  "extends": [
+    "google",
+    "plugin:prettier/recommended"
+  ],
   "env": {
     "browser": true
   },
@@ -7,6 +10,7 @@
     "ecmaVersion": 2016,
     "sourceType": "script"
   },
+  "plugins": ["prettier"],
   "rules": {
     "semi": "error",
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
@@ -20,6 +24,7 @@
     }],
     "indent": ["error", 2],
     "no-console": "error",
+    "prettier/prettier": "error",
     "quotes": ["error", "single", { "allowTemplateLiterals": true }]
   }
 }

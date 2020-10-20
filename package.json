@@ -18,7 +18,10 @@
   "homepage": "https://github.com/bcorman/esquery-training#readme",
   "devDependencies": {
     "eslint": "^7.11.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   },
   "dependencies": {}
 }
