@@ -42,7 +42,7 @@ const update = () => {
   let ast;
 
   try {
-    ast = esprima.parse(codeConsole.value, {sourceType: 'module'});
+    ast = esprima.parse(codeConsole.value, { sourceType: 'module' });
   } catch (e) {
     isSourceValid = false;
   }
@@ -62,7 +62,7 @@ const update = () => {
   }
 
   try {
-    selectorAst = esquery.parse(selector, {sourceType: 'module'});
+    selectorAst = esquery.parse(selector, { sourceType: 'module' });
   } catch (e) {
     isSelectorValid = false;
   }
@@ -82,11 +82,10 @@ const update = () => {
   matchesOutput = matchesOutput || JSON.stringify(matches, null, '  ');
 
   const numMatches = matches ? matches.length : 0;
-  const duration = Math.round((end - start) * (10 ** 2)) / (10 ** 2);
+  const duration = Math.round((end - start) * 10 ** 2) / 10 ** 2;
   const invalidSource = `<span id='numMatches'></span>Invalid Source Code`;
   const invalidSelector = `<span id='numMatches'></span>Invalid Selector`;
-  const resultsMessage =
-    `<span id='numMatches'>${numMatches}</span> 
+  const resultsMessage = `<span id='numMatches'>${numMatches}</span> 
     node${numMatches === 1 ? '' : 's'} found in ${duration} ms`;
 
   if (isSourceValid && isSelectorValid) {
