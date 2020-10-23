@@ -1,0 +1,205 @@
+:root {
+  --black: rgba(39, 39, 39, 1);
+  --white: rgba(230, 230, 230, 1);
+  --grey: rgb(59, 59, 59);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 900;
+  font-size: 10px;
+  text-shadow: 0 2px 0 rbga(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 22px;
+}
+
+body.dark {
+  background-color: var(--black);
+}
+
+main {
+  display: grid;
+  grid-template: 
+                "header header header"
+                "console output output"
+                "controls prompt prompt"
+                "query query query";
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 12px;
+  grid-template-rows: auto auto auto 1fr;
+  row-gap: 12px;
+  grid-auto-rows: auto;
+}
+
+main textarea, main pre, main input {
+  font-family: "Consolas", "Menlo", "Courier", monospace;
+  padding-left: 6px;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dark-toggle {
+  align-self: flex-start;
+}
+
+#banner {
+  color: var(--black);
+  font-size: 24px;
+  margin: 0px;
+}
+
+.dark #banner {
+  color: var(--white)
+}
+
+.console {
+  height: 60vh;
+  min-height: 300px;
+  min-width: 300px;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark .console {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+#console-display {
+  grid-area: console;
+}
+
+#output-display {
+  display: flex;
+  flex-direction: column;
+}
+
+#output-title {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+
+}
+
+.label {
+  font-size: 12px;
+  align-self: center;
+  margin-bottom: 12px;
+}
+
+#console-display textarea {
+  height: 96%;
+  margin-bottom: 6px;
+  overflow: scroll;
+  resize: none;
+  border: none;
+  outline: none;
+  text-shadow: none;
+  padding: 6px 10px;
+}
+
+.dark #console-display textarea {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+#output-ast-container {
+  grid-area: output;
+  overflow: scroll;
+}
+
+#selector-display {
+  grid-area: query;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#results {
+  margin-left: 24px;
+}
+
+#selector {
+  height: 3.5em;
+  min-height: 2.6em;
+  padding: 8px 0 0 8px;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  resize: vertical;
+  outline: none;
+}
+
+.dark #selector {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+button {
+  height: 3em;
+  width: 6em;
+  font-weight: bold;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s cubic-bezier(1,0.66,.79,1);
+  cursor: pointer;
+}
+
+.dark button {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+#controls {
+  grid-area: controls;
+  display: flex;
+  justify-content: space-between;
+}
+
+.control {
+  padding: 0 10px 2px;
+}
+
+#copy-button {
+  margin-right: 12px;
+}
+
+button:active {
+  background-color: rgb(236, 236, 236);
+  transform: translateY(2px);
+}
+
+#copy-message {
+  display: none;
+}
+
+#copy-message.show {
+  display: inline;
+}
+
+.dark #copy-message {
+  color: var(--white);
+}
+
+#prompt {
+  grid-area: prompt
+}
+
+.prompt-text {
+  margin-left: 12px;
+}
+
+.dark .prompt-text {
+  color: var(--white);
+}
