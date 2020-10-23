@@ -1,4 +1,7 @@
 import { cyclePrompt } from './training';
+import esquery from 'esquery';
+import * as esprima from 'esprima';
+
 const codeConsole = document.getElementById('console-source');
 const selectorNode = document.getElementById('selector');
 const outputConsole = document.getElementById('output');
@@ -44,6 +47,7 @@ const update = () => {
   try {
     ast = esprima.parse(codeConsole.value, { sourceType: 'module' });
   } catch (e) {
+    console.error(e);
     isSourceValid = false;
   }
   const selector = selectorNode.value.replace(/\n/g, '');
@@ -64,12 +68,14 @@ const update = () => {
   try {
     selectorAst = esquery.parse(selector, { sourceType: 'module' });
   } catch (e) {
+    console.error(e);
     isSelectorValid = false;
   }
 
   try {
     matches = esquery.match(ast, selectorAst);
   } catch (e) {
+    console.error(e);
     matchesOutput = e.message;
   }
 
