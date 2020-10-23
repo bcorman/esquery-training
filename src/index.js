@@ -1,4 +1,4 @@
-import { cyclePrompt } from './training';
+import { prompts } from './training';
 import esquery from 'esquery';
 import * as esprima from 'esprima';
 
@@ -37,6 +37,21 @@ const copyQuery = () => {
   selectorNode.value = originalValue;
   selectorNode.blur();
   copyConfirmation();
+};
+
+const updatePrompt = () => {
+  const promptText = document.getElementById('prompt');
+  codeConsole.innerHTML = prompts[currentPrompt].code;
+  promptText.innerHTML = `<h3 class="prompt-text">${currentPrompt + 1} of ${
+    prompts.length
+  }: ${prompts[currentPrompt].text}</h3>`;
+};
+
+const cyclePrompt = (e) => {
+  e.preventDefault();
+  localStorage.setItem('currentPrompt', currentPrompt);
+  updatePrompt();
+  currentPrompt === prompts.length - 1 ? (currentPrompt = 0) : currentPrompt++;
 };
 
 const update = () => {
