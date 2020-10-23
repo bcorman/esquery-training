@@ -1,3 +1,4 @@
+import { cyclePrompt } from './training';
 const codeConsole = document.getElementById('console-source');
 const selectorNode = document.getElementById('selector');
 const outputConsole = document.getElementById('output');
@@ -5,7 +6,6 @@ const resultsNode = document.getElementById('results');
 const copyButton = document.getElementById('copy-button');
 const darkButton = document.getElementById('dark-toggle');
 const promptButton = document.getElementById('prompt-button');
-const promptText = document.getElementById('prompt');
 
 let currentPrompt = Number(localStorage.getItem('currentPrompt'));
 let isDark = JSON.parse(localStorage.getItem('isDark'));

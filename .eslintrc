@@ -8,7 +8,7 @@
   },
   "parserOptions": {
     "ecmaVersion": 2016,
-    "sourceType": "script"
+    "sourceType": "module"
   },
   "plugins": ["prettier"],
   "rules": {

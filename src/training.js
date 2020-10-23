@@ -97,16 +97,17 @@ const prompts = [
   },
 ];
 
-const cyclePrompt = (e) => {
-  e.preventDefault();
-  localStorage.setItem('currentPrompt', currentPrompt);
-  updatePrompt();
-  currentPrompt === prompts.length - 1 ? (currentPrompt = 0) : currentPrompt++;
-};
-
 const updatePrompt = () => {
+  const promptText = document.getElementById('prompt');
   codeConsole.innerHTML = prompts[currentPrompt].code;
   promptText.innerHTML = `<h3 class="prompt-text">${currentPrompt + 1} of ${
     prompts.length
   }: ${prompts[currentPrompt].text}</h3>`;
+};
+
+export const cyclePrompt = (e) => {
+  e.preventDefault();
+  localStorage.setItem('currentPrompt', currentPrompt);
+  updatePrompt();
+  currentPrompt === prompts.length - 1 ? (currentPrompt = 0) : currentPrompt++;
 };
