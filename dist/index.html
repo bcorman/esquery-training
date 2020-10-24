@@ -26,18 +26,17 @@
       <h1 id="banner">ESQuery</h1>
     </header>
 
-    <div id="console-display" class="console">
-      <label for="Code Snippet"></label>
-      <span class="label">Source</span>
+    <div id="source-code-display" class="console">
+      <span id="source-code-label" class="label">Source Code</span>
 
       <!-- This indentation affects the indentation of the text in the textarea -->
-      <textarea id="console-source" spellcheck="false" wrap="off" autocomplete="off">
+      <div aria-labelledby="source-code-label" id="console-source-code" class="text-area" contenteditable="true" spellcheck="false" wrap="off" autocomplete="off">
 let foo = bar => {
   return bar * 7;
 }
 
 foo();
-</textarea>
+</div>
 
     </div>
 
@@ -64,8 +63,8 @@ foo();
 
     </div>
     <div id="selector-display">
-      <label for="query"></label>
-      <textarea id="selector" spellcheck="false" autocomplete="off">Program</textarea>
+      <span id="query" class="label">Query</span>
+      <div aria-labelledby="query-label" id="selector" class="text-area" spellcheck="false" autocomplete="off" contenteditable="true">Program</div>
     </div>
 
 

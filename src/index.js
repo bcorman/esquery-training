@@ -2,7 +2,7 @@ import { prompts } from './training';
 import esquery from 'esquery';
 import * as esprima from 'esprima';
 
-const codeConsole = document.getElementById('console-source');
+const codeConsole = document.getElementById('console-source-code');
 const selectorNode = document.getElementById('selector');
 const outputConsole = document.getElementById('output');
 const resultsNode = document.getElementById('results');
@@ -29,12 +29,12 @@ const copyConfirmation = () => {
 };
 
 const copyQuery = () => {
-  const originalValue = selectorNode.value;
-  const formattedValue = selectorNode.value.replace(/\n/g, '');
-  selectorNode.value = formattedValue;
+  const originalValue = selectorNode.textContent;
+  const formattedValue = selectorNode.textContent.replace(/\n/g, '');
+  selectorNode.textContent = formattedValue;
   selectorNode.select();
   document.execCommand('copy');
-  selectorNode.value = originalValue;
+  selectorNode.textContent = originalValue;
   selectorNode.blur();
   copyConfirmation();
 };
@@ -55,17 +55,19 @@ const cyclePrompt = (e) => {
 };
 
 const update = () => {
-  let isSourceValid = true;
-  let isSelectorValid = true;
+  let sourceValid = true;
+  let selectorValid = true;
   let ast;
 
   try {
-    ast = esprima.parse(codeConsole.value, { sourceType: 'module' });
+    ast = esprima.parse(codeConsole.textContent, { sourceType: 'module' });
   } catch (e) {
-    window.console.error(e);
-    isSourceValid = false;
+    window.console.warn(
+      `Invalid Source Code: ${e.description} at line ${e.lineNumber}, index ${e.index}`
+    );
+    sourceValid = false;
   }
-  const selector = selectorNode.value.replace(/\n/g, '');
+  const selector = selectorNode.textContent.replace(/\n/g, '');
   outputConsole.innerHTML = '';
 
   let start;
@@ -84,13 +86,12 @@ const update = () => {
     selectorAst = esquery.parse(selector, { sourceType: 'module' });
   } catch (e) {
     window.console.error(e);
-    isSelectorValid = false;
+    selectorValid = false;
   }
 
   try {
     matches = esquery.match(ast, selectorAst);
   } catch (e) {
-    window.console.error(e);
     matchesOutput = e.message;
   }
 
@@ -109,9 +110,9 @@ const update = () => {
   const resultsMessage = `<span id='numMatches'>${numMatches}</span> 
     node${numMatches === 1 ? '' : 's'} found in ${duration} ms`;
 
-  if (isSourceValid && isSelectorValid) {
+  if (sourceValid && selectorValid) {
     resultsNode.innerHTML = resultsMessage;
-  } else if (isSourceValid) {
+  } else if (sourceValid) {
     resultsNode.innerHTML = invalidSelector;
   } else {
     resultsNode.innerHTML = invalidSource;

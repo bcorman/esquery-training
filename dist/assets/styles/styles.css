@@ -6,7 +6,9 @@
 
 html {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-weight: 900;
   font-size: 10px;
   text-shadow: 0 2px 0 rbga(0, 0, 0, 0.1);
@@ -22,11 +24,11 @@ body.dark {
 
 main {
   display: grid;
-  grid-template: 
-                "header header header"
-                "console output output"
-                "controls prompt prompt"
-                "query query query";
+  grid-template:
+    'header header header'
+    'console output output'
+    'controls prompt prompt'
+    'query query query';
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 12px;
   grid-template-rows: auto auto auto 1fr;
@@ -34,8 +36,10 @@ main {
   grid-auto-rows: auto;
 }
 
-main textarea, main pre, main input {
-  font-family: "Consolas", "Menlo", "Courier", monospace;
+main textarea,
+main pre,
+main input {
+  font-family: 'Consolas', 'Menlo', 'Courier', monospace;
   padding-left: 6px;
 }
 
@@ -57,7 +61,7 @@ header {
 }
 
 .dark #banner {
-  color: var(--white)
+  color: var(--white);
 }
 
 .console {
@@ -75,7 +79,7 @@ header {
   color: var(--white);
 }
 
-#console-display {
+#source-code-display {
   grid-area: console;
 }
 
@@ -89,7 +93,6 @@ header {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
-
 }
 
 .label {
@@ -98,18 +101,24 @@ header {
   margin-bottom: 12px;
 }
 
-#console-display textarea {
+#console-source-code {
   height: 96%;
   margin-bottom: 6px;
-  overflow: scroll;
+  padding: 6px 10px;
   resize: none;
   border: none;
   outline: none;
-  text-shadow: none;
-  padding: 6px 10px;
 }
 
-.dark #console-display textarea {
+.text-area {
+  white-space: pre;
+  overflow: scroll;
+  font-family: 'Consolas', 'Menlo', 'Courier', monospace;
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.dark #console-source-code {
   background-color: var(--grey);
   color: var(--white);
 }
@@ -124,7 +133,6 @@ header {
   display: flex;
   flex-direction: column;
 }
-
 
 #results {
   margin-left: 24px;
@@ -152,7 +160,7 @@ button {
   border: 1px solid var(--black);
   border-radius: 5px;
   outline: none;
-  transition: 0.3s cubic-bezier(1,0.66,.79,1);
+  transition: 0.3s cubic-bezier(1, 0.66, 0.79, 1);
   cursor: pointer;
 }
 
@@ -193,7 +201,7 @@ button:active {
 }
 
 #prompt {
-  grid-area: prompt
+  grid-area: prompt;
 }
 
 .prompt-text {
@@ -201,5 +209,9 @@ button:active {
 }
 
 .dark .prompt-text {
+  color: var(--white);
+}
+
+.dark #query {
   color: var(--white);
 }
