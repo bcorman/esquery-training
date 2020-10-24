@@ -62,7 +62,7 @@ const update = () => {
   try {
     ast = esprima.parse(codeConsole.value, { sourceType: 'module' });
   } catch (e) {
-    console.error(e);
+    window.console.error(e);
     isSourceValid = false;
   }
   const selector = selectorNode.value.replace(/\n/g, '');
@@ -83,14 +83,14 @@ const update = () => {
   try {
     selectorAst = esquery.parse(selector, { sourceType: 'module' });
   } catch (e) {
-    console.error(e);
+    window.console.error(e);
     isSelectorValid = false;
   }
 
   try {
     matches = esquery.match(ast, selectorAst);
   } catch (e) {
-    console.error(e);
+    window.console.error(e);
     matchesOutput = e.message;
   }
 
